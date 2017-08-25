@@ -155,27 +155,27 @@
             box.w,
             box.h);
 
-        ctx.strokeStyle = '#ffff00';
+        ctx.strokeStyle = '#00ff00';
 
         ctx.save();
 
         ctx.translate(box.x + box.w / 2, box.y + box.h / 2);
-		ctx.rotate(ps.a);
-		
-		ctx.beginPath();
-		ctx.moveTo(-box.w/2,-box.h/2);
-		ctx.lineTo(box.w/2,0);
-		ctx.lineTo(-box.w/2,box.h/2)
-		ctx.stroke();
-		/*
+        ctx.rotate(ps.a);
+
+        ctx.beginPath();
+        ctx.moveTo(-box.w / 2, -box.h / 2);
+        ctx.lineTo(box.w / 2, 0);
+        ctx.lineTo(-box.w / 2, box.h / 2)
+        ctx.stroke();
+        /*
         ctx.strokeRect(
 
-            -box.w / 2,
-            -box.h / 2,
-            box.w,
-            box.h);
-			
-		*/
+        -box.w / 2,
+        -box.h / 2,
+        box.w,
+        box.h);
+
+         */
 
         ctx.restore();
     },
