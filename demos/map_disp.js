@@ -116,8 +116,6 @@
                     ctx.lineWidth = 3;
                     ctx.fillStyle = '#ff0000';
 
-                    //ctx.fillRect(box.x, box.y, box.w, box.h);
-
                     ctx.beginPath();
                     ctx.arc(box.x, box.y, box.w, 0, Math.PI * 2);
                     ctx.closePath();
@@ -130,9 +128,6 @@
             }
 
         });
-
-        ctx.fillStyle = '#ffff00';
-        ctx.fillText('sx ' + sx, 10, 300);
 
     },
 
@@ -205,22 +200,47 @@
 
     drawInfo = function () {
 
-        var x = 400,
+        var x = 10,
         y = 10,
         dy = 20;
 
         ctx.fillStyle = '#00ff00';
-        ctx.fillText('mw: ' + P.vp.mw, x, y + dy * 1);
-        ctx.fillText('mh: ' + P.vp.mh, x, y + dy * 2);
-        ctx.fillText('vp pos (px) (' + P.vp.x + ',' + P.vp.y + ')', x, y + dy * 3);
-        ctx.fillText('vp pos (sec) (' + P.vp.X + ',' + P.vp.Y + ')', x, y + dy * 4);
-        ctx.fillText('vp sec index: ' + P.vp.secIndex, x, y + dy * 5);
-        ctx.fillText('vp sec XY offset: (' + P.vp.secXOff + ',' + P.vp.secYOff + ')', x, y + dy * 6);
-        ctx.fillText('look ahead: ' + P.vp.la, x, y + dy * 7);
-        ctx.fillText('sx: ' + P.vp.sx, x, y + dy * 8);
-        ctx.fillText('ajustX: ' + P.vp.ajustX, x, y + dy * 9);
+        ctx.textBaseline = 'top';
+        var infos = [
+
+            'vp pos (px) (' + P.vp.x + ',' + P.vp.y + ')',
+            'player speed: ' + P.map.pShip.b
+
+        ];
+
+        infos.forEach(function (fo, i) {
+
+            ctx.fillText(fo, x, y + dy * i)
+
+        });
 
     },
+
+    /*
+    drawInfo = function () {
+
+    var x = 10,
+    y = 10,
+    dy = 20;
+
+    ctx.fillStyle = '#00ff00';
+    ctx.fillText('mw: ' + P.vp.mw, x, y + dy * 1);
+    ctx.fillText('mh: ' + P.vp.mh, x, y + dy * 2);
+    ctx.fillText('vp pos (px) (' + P.vp.x + ',' + P.vp.y + ')', x, y + dy * 3);
+    ctx.fillText('vp pos (sec) (' + P.vp.X + ',' + P.vp.Y + ')', x, y + dy * 4);
+    ctx.fillText('vp sec index: ' + P.vp.secIndex, x, y + dy * 5);
+    ctx.fillText('vp sec XY offset: (' + P.vp.secXOff + ',' + P.vp.secYOff + ')', x, y + dy * 6);
+    ctx.fillText('look ahead: ' + P.vp.la, x, y + dy * 7);
+    ctx.fillText('sx: ' + P.vp.sx, x, y + dy * 8);
+    ctx.fillText('ajustX: ' + P.vp.ajustX, x, y + dy * 9);
+
+    },
+     */
 
     // the single draw function
     draw = function () {
@@ -246,52 +266,6 @@
         requestAnimationFrame(loop);
 
         P.keyState(keys);
-
-        /*
-        if (keys[68]) {
-
-        P.vp.x += 1;
-
-        }
-
-        if (keys[49]) {
-
-        //if (P.vp.w < 1280) {
-
-        P.vp.w += 2;
-        P.vp.x -= 1;
-
-        P.vp.h += 2;
-        P.vp.y -= 1;
-
-        //}
-
-        }
-         */
-
-        if (keys[50]) {
-
-            //if (P.vp.h > 32) {
-
-            P.vp.w -= 2;
-            P.vp.x += 1;
-
-            P.vp.h -= 2;
-            P.vp.y += 1;
-
-            //}
-
-        }
-
-        if (keys[51]) {
-
-            console.log(P.map.load);
-
-        }
-
-        // multi
-        //mw = P.map.sw / P.vp.w;
-        //mh = P.map.sh / P.vp.h;
 
         P.map.update();
         P.vp.update();

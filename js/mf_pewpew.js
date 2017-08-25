@@ -8,11 +8,13 @@ var P = (function () {
 
     },
 
+    Weapons = [],
+
     // WE is for Weapon Class
     WE = function (o) {
 
         this.lf = new Date(); // last fire
-        this.fr = 1000; // fireRate
+        this.fr = 100; // fireRate
         this.ls = new Date(0);
 
     },
@@ -58,6 +60,7 @@ var P = (function () {
 
         // the current weapon
 
+        this.wi = 0; // weapon index
         this.we = new WE();
 
     };
@@ -367,8 +370,6 @@ var P = (function () {
 
         if (s.length > 0) {
 
-            console.log(s);
-
             s.forEach(function (s) {
 
                 map.shots.push(s);
@@ -436,8 +437,8 @@ var P = (function () {
 
             s.push(new SH({
 
-                    x : vp.x + map.sw / 2-10/5,
-                    y : vp.y + map.sh / 2-10/5,
+                    x : vp.x + map.sw / 2 - 10 / 5,
+                    y : vp.y + map.sh / 2 - 10 / 5,
                     a : map.pShip.a,
                     s : 10,
                     b : 4,
@@ -501,7 +502,7 @@ var P = (function () {
                     if (keys[87]) {
 
                         //vp.y -= 1;
-                        map.pShip.b+=.1;
+                        map.pShip.b += .1;
 
                     }
 
@@ -509,7 +510,7 @@ var P = (function () {
                     if (keys[83]) {
 
                         //vp.y += 1;
-                        map.pShip.b-=.1;
+                        map.pShip.b -= .1;
 
                     }
 

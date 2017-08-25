@@ -9,9 +9,9 @@
 * Old Shots purged out if lifespan <= 0
 * Vessel update code always moves ship based on current values
 * User input changes heading and speed values
+* Weapons class started
 
 <-- bookmark -->
 
-* Weapons class ( zero or more instances for each Vessel )
 * Enemy Vessel instances added
 * AI Script controlled Enemy Vessels
