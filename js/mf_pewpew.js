@@ -368,6 +368,48 @@ var P = (function () {
 
         },
 
+        // make a planet ring
+        PLRing : function (points,d) {
+
+            var p = points;
+            while (p--) {
+
+                var r = Math.PI * 2 / points * p,
+                a = Math.floor(Math.cos(r) * d),
+                b = Math.floor(Math.sin(r) * d),
+                sec = P.map.getPos(a, b);
+
+                if (sec === undefined) {
+
+                    console.log('undefined sec');
+                    console.log(a);
+                    console.log(b);
+
+                } else {
+
+                    // no planet array? make one
+                    if (sec.pl === undefined) {
+
+                        sec.pl = [];
+
+                    }
+
+                    // push new planet
+                    sec.pl.push({
+
+                        x : a,
+                        y : b,
+                        s : 5
+
+                    });
+
+                }
+
+            }
+
+        },
+
+        // return an adjusted object with the given width and height values
         ajust : function (obj, width, height) {
 
             width = width || 640;

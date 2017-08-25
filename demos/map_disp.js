@@ -30,7 +30,7 @@
         });
 
     },
-
+/*
     ring = function (points, d) {
 
         var p = points;
@@ -76,7 +76,7 @@
         }
 
     },
-
+*/
     setup = function () {
 
         // append to body
@@ -86,20 +86,6 @@
         canvas.width = 800;
         canvas.height = 600;
 
-        // setup map
-        /*
-        P.map.sw = 32;
-        P.map.sh = 32;
-        P.map.W = 20;
-        P.map.H = 12;
-
-        P.vp.w = 32;
-        P.vp.h = 32;
-
-        P.vp.set();
-        P.map.set();
-
-         */
         P.set({
 
             // setup the section map
@@ -134,16 +120,7 @@
         P.vp.y = -P.vp.h / 2;
 
         // rings
-        ring(10, 200);
-
-        /*
-        ring(10000, 190);
-        ring(5000, 150);
-        ring(100, 100);
-        ring(20, 50);
-        ring(10, 20);
-
-         */
+        P.PLRing(10, 200);
 
         // load sections for first time
         P.vp.ls();
