@@ -44,6 +44,7 @@ var P = (function () {
 
         BA.call(this, o);
 
+        this.owner = o.owner || 'p';
         this.l = o.l || 100; // life span
         this.dam = 1; // damage
 
@@ -52,11 +53,13 @@ var P = (function () {
     // VE is for vessel
     VE = function (o) {
 
+        o = o || {};
+
         BA.call(this, o);
 
         this.H = 1; // max HP
         this.i = this.H; // HP
-
+        this.owner = o.owner || 'p';
 
         // the current weapon
 
@@ -94,6 +97,9 @@ var P = (function () {
 
         // current active shots
         shots : [],
+
+        // active enemy's
+        enemys : [],
 
         secs : [], // the sections array
         load : [], // currently loaded sections

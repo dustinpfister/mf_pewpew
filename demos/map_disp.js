@@ -186,6 +186,12 @@
 
             var box = P.ajust(sh, 800, 600);
 
+            ctx.strokeStyle = '#ff0000';
+            if (sh.owner === 'p') {
+
+                ctx.strokeStyle = '#00ff00';
+            }
+
             ctx.strokeRect(
 
                 box.x,
@@ -193,7 +199,7 @@
                 sh.s,
                 sh.s);
 
-            ctx.fillText(sh.l, box.x, box.y);
+            //ctx.fillText(sh.l, box.x, box.y);
 
         });
     },
