@@ -53,23 +53,25 @@
                 console.log(a);
                 console.log(b);
 
+            } else {
+
+                // no planet array? make one
+                if (sec.pl === undefined) {
+
+                    sec.pl = [];
+
+                }
+
+                // push new planet
+                sec.pl.push({
+
+                    x : a,
+                    y : b,
+                    s : 5
+
+                });
+
             }
-
-            //console.log(sec);
-
-            if (sec.pl === undefined) {
-
-                sec.pl = [];
-
-            }
-
-            sec.pl.push({
-
-                x : a,
-                y : b,
-                s : 5
-
-            });
 
         }
 
@@ -132,8 +134,6 @@
         P.vp.y = -P.vp.h / 2;
 
         // rings
-
-
         ring(10, 200);
 
         /*
@@ -346,29 +346,29 @@
 
         if (keys[49]) {
 
-            if (P.vp.w < 640) {
+            //if (P.vp.w < 1280) {
 
-                P.vp.w += 2;
-                P.vp.x -= 1;
+            P.vp.w += 2;
+            P.vp.x -= 1;
 
-                P.vp.h += 2;
-                P.vp.y -= 1;
+            P.vp.h += 2;
+            P.vp.y -= 1;
 
-            }
+            //}
 
         }
 
         if (keys[50]) {
 
-            if (P.vp.h > 32) {
+            //if (P.vp.h > 32) {
 
-                P.vp.w -= 2;
-                P.vp.x += 1;
+            P.vp.w -= 2;
+            P.vp.x += 1;
 
-                P.vp.h -= 2;
-                P.vp.y += 1;
+            P.vp.h -= 2;
+            P.vp.y += 1;
 
-            }
+            //}
 
         }
 
