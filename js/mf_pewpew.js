@@ -389,6 +389,39 @@ var P = (function () {
 
         },
 
+        // update based on given keys state array
+        keyState : function (keys) {
+
+            // w
+            if (keys[87]) {
+
+                P.vp.y -= 1;
+
+            }
+
+            // s
+            if (keys[83]) {
+
+                P.vp.y += 1;
+
+            }
+
+            // a
+            if (keys[65]) {
+
+                P.vp.x -= 1;
+
+            }
+
+            // d
+            if (keys[68]) {
+
+                P.vp.x += 1;
+
+            }
+
+        },
+
         // make a planet ring
         PLRing : function (points, d) {
 

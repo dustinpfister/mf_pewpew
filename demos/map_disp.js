@@ -197,24 +197,9 @@ drawShip();
 
         requestAnimationFrame(loop);
 
-        if (keys[87]) {
+        P.keyState(keys);
 
-            P.vp.y -= 1;
-
-        }
-
-        if (keys[83]) {
-
-            P.vp.y += 1;
-
-        }
-
-        if (keys[65]) {
-
-            P.vp.x -= 1;
-
-        }
-
+		/*
         if (keys[68]) {
 
             P.vp.x += 1;
@@ -234,6 +219,7 @@ drawShip();
             //}
 
         }
+		*/
 
         if (keys[50]) {
 
