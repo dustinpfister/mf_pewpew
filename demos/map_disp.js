@@ -146,7 +146,7 @@
 
         box = P.ajust(ps, 800, 600);
 
-        ctx.strokeStyle = '#00ff00';
+        ctx.strokeStyle = 'rgba(0,255,0,.2)';
 
         ctx.strokeRect(
 
