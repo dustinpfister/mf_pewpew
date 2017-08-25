@@ -30,53 +30,53 @@
         });
 
     },
-/*
+    /*
     ring = function (points, d) {
 
-        var p = points;
-        while (p--) {
+    var p = points;
+    while (p--) {
 
-            var r = Math.PI * 2 / points * p;
-            var a = Math.floor(Math.cos(r) * d);
-            var b = Math.floor(Math.sin(r) * d);
+    var r = Math.PI * 2 / points * p;
+    var a = Math.floor(Math.cos(r) * d);
+    var b = Math.floor(Math.sin(r) * d);
 
-            //console.log(x + ',' + y)
+    //console.log(x + ',' + y)
 
-            //console.log();
-            var sec = P.map.getPos(a, b);
+    //console.log();
+    var sec = P.map.getPos(a, b);
 
-            //console.log(sec);
+    //console.log(sec);
 
-            if (sec === undefined) {
+    if (sec === undefined) {
 
-                console.log('undefined sec');
-                console.log(a);
-                console.log(b);
+    console.log('undefined sec');
+    console.log(a);
+    console.log(b);
 
-            } else {
+    } else {
 
-                // no planet array? make one
-                if (sec.pl === undefined) {
+    // no planet array? make one
+    if (sec.pl === undefined) {
 
-                    sec.pl = [];
+    sec.pl = [];
 
-                }
+    }
 
-                // push new planet
-                sec.pl.push({
+    // push new planet
+    sec.pl.push({
 
-                    x : a,
-                    y : b,
-                    s : 5
+    x : a,
+    y : b,
+    s : 5
 
-                });
+    });
 
-            }
+    }
 
-        }
+    }
 
     },
-*/
+     */
     setup = function () {
 
         // append to body
@@ -186,7 +186,11 @@
                 sec.pl.forEach(function (pl) {
 
                     ctx.fillStyle = '#ff0000';
-                    ctx.fillRect(pl.x + offX, pl.y + offY, pl.s, pl.s);
+                    ctx.beginPath();
+                    ctx.arc(pl.x + offX, pl.y + offY, pl.s, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.stroke();
+                    //ctx.fillRect(pl.x + offX, pl.y + offY, pl.s, pl.s);
 
                 });
 
@@ -214,7 +218,6 @@
 
     drawSceen = function () {
 
-        ctx.strokeStyle = '#ffff00';
         ctx.lineWidth = 3;
 
         var sx = P.vp.sx / P.map.sw * 800,
@@ -223,6 +226,8 @@
         P.map.load.forEach(function (sec) {
 
             var box = P.ajust(sec, 800, 600);
+
+            ctx.strokeStyle = '#ffff00';
 
             ctx.strokeRect(
 
@@ -237,8 +242,18 @@
 
                     var box = P.ajust(pl, 800, 600);
 
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.lineWidth = 3;
                     ctx.fillStyle = '#ff0000';
-                    ctx.fillRect(box.x, box.y, box.w, box.h);
+
+                    //ctx.fillRect(box.x, box.y, box.w, box.h);
+
+                    ctx.beginPath();
+                    ctx.arc(box.x, box.y, box.w, 0, Math.PI * 2);
+                    ctx.closePath();
+
+                    ctx.fill();
+                    ctx.stroke();
 
                 });
 
