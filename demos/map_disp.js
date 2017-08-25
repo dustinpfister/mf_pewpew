@@ -204,13 +204,15 @@
 
             var box = P.ajust(e, 800, 600);
 
-			ctx.strokeStyle = '#ff0000';
+            ctx.strokeStyle = '#ff0000';
             ctx.strokeRect(
 
                 box.x,
                 box.y,
                 e.s,
                 e.s);
+				
+			ctx.fillText(e.i,box.x,box.y);
 
         });
 
