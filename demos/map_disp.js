@@ -304,8 +304,6 @@
 
     window.onkeydown = function (e) {
 
-        console.log(e.keyCode);
-
         keys[e.keyCode] = true;
 
     };

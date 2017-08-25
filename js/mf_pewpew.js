@@ -11,7 +11,9 @@ var P = (function () {
     // WE is for Weapon Class
     WE = function (o) {
 
-        this.sps = 3; // shots per second
+        this.lf = new Date(); // last fire
+        this.fr = 1000; // fireRate
+        this.ls = new Date(0);
     },
 
     // BA is for Base Unit Class
@@ -54,11 +56,8 @@ var P = (function () {
 
 
         // the current weapon
-        this.lf = new Date(); // last fire
-        this.fr = 100; // fireRate
 
         this.we = new WE();
-        this.ls = new Date(0);
 
     };
 
@@ -363,26 +362,11 @@ var P = (function () {
     // shoot
     VE.prototype.shoot = function () {
 
-        var now = new Date();
+        var s = this.we.shoot();
 
-        if (now - this.lf >= this.fr) {
+        if (s.l) {
 
-            var s = new SH({
-
-                    x : vp.x + map.sw / 2,
-                    y : vp.y + map.sh / 2,
-                    a : this.a,
-                    s : 3,
-                    b : 3
-
-                });
-
-            //a.s.u.push(s);
-
-            // push to maps shot array
-            map.shots.push(s);
-
-            this.lf = new Date();
+            console.log(s);
 
         }
 
@@ -431,6 +415,37 @@ var P = (function () {
     PL.prototype.pro = function () {
 
         if (this.sp) {}
+
+    };
+
+    // weapon class
+
+    WE.prototype.shoot = function () {
+
+        var now = new Date(),
+        s = {};
+
+        if (now - this.lf >= this.fr) {
+
+            s = new SH({
+
+                    x : vp.x + map.sw / 2,
+                    y : vp.y + map.sh / 2,
+                    a : this.a,
+                    s : 3,
+                    b : 3,
+                    l : 10
+
+                });
+
+            // push to maps shot array
+            //map.shots.push(s);
+
+            this.lf = new Date();
+
+        }
+
+        return s;
 
     };
 
