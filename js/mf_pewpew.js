@@ -184,7 +184,7 @@ var P = (function () {
                 this.enemys.push(new VE({
 
                         owner : 'e',
-                        x : map.pShip.x + 32 / 5+100,
+                        x : map.pShip.x + 32 / 5 + 100,
                         y : map.pShip.y + 32 / 5,
                         s : 32
 
@@ -221,6 +221,25 @@ var P = (function () {
             this.shots.forEach(function (sh) {
 
                 sh.move();
+
+                // player shot
+                if (sh.owner === 'p') {
+
+                    // loop over enemies
+
+                    map.enemys.forEach(function (e) {
+
+                        if (sh.c(e) && sh.l > 0) {
+
+                            // hp hit
+                            e.i -= 1;
+                            sh.l = 0;
+
+                        }
+
+                    });
+
+                }
 
                 sh.l--;
 
@@ -365,7 +384,7 @@ var P = (function () {
     // distance collision detection
     BA.prototype.c = function (u) {
 
-        if (d(this.x, this.y, u.x, u.y) < u.s) {
+        if (d(this.x, this.y, u.x, u.y) < 5) {
 
             return true;
 
