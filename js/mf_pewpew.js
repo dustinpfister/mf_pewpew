@@ -164,6 +164,32 @@ var P = (function () {
 
                 });
 
+        },
+
+        // what to update on each fram tick for map
+        update : function () {
+
+            // update shots
+            this.shots.forEach(function (sh) {
+
+                sh.move();
+
+                sh.l--;
+
+            });
+
+            // purge old shots
+            var i = this.shots.length;
+            while (i--) {
+
+                if (this.shots[i].l <= 0) {
+
+                    this.shots.splice(i, 1);
+
+                }
+
+            }
+
         }
 
     },
@@ -296,6 +322,16 @@ var P = (function () {
         }
 
         return false;
+
+    };
+
+    BA.prototype.move = function () {
+
+        var u = this;
+
+        // move by heading and speed
+        u.x += Math.cos(u.a) * u.b;
+        u.y += Math.sin(u.a) * u.b;
 
     };
 

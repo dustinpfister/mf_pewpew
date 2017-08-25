@@ -173,6 +173,8 @@
                 box.y,
                 box.w,
                 box.h);
+				
+			ctx.fillText(sh.l, box.x,box.y);
 
         });
     },
@@ -267,6 +269,7 @@
         //mw = P.map.sw / P.vp.w;
         //mh = P.map.sh / P.vp.h;
 
+		P.map.update();
         P.vp.update();
         P.vp.ls();
 
