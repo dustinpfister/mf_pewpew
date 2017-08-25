@@ -163,11 +163,17 @@ var P = (function () {
                     h : 32
 
                 });
+				
+			this.pShip.b=1;
 
         },
 
-        // what to update on each fram tick for map
+        // what to update for map on each frame tick for map
         update : function () {
+
+            // update view port based on player ship values
+            vp.x += Math.cos(this.pShip.a) * this.pShip.b;
+            vp.y += Math.sin(this.pShip.a) * this.pShip.b;
 
             // update shots
             this.shots.forEach(function (sh) {
@@ -447,28 +453,33 @@ var P = (function () {
             // w
             if (keys[87]) {
 
-                vp.y -= 1;
+                //vp.y -= 1;
 
             }
 
             // s
             if (keys[83]) {
 
-                vp.y += 1;
+                //vp.y += 1;
 
             }
 
             // a
             if (keys[65]) {
 
-                vp.x -= 1;
+                //vp.x -= 1;
+
+                map.pShip.a += Math.PI / 50;
 
             }
 
             // d
             if (keys[68]) {
 
-                vp.x += 1;
+                //vp.x += 1;
+
+
+                map.pShip.a -= Math.PI / 50;
 
             }
 

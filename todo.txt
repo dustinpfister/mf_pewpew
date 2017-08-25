@@ -2,12 +2,16 @@
 
 0.0.x
 
-
 * Put together a Single file based off the source code from mf_shots, and mf_sections
 * Player Vessel instance for the player ship fixed at the center of the view port
 * Player Vessel instance controlled by user input
+* Shots move
+* Old Shots purged out if lifespan <= 0
 
-<!-- bookmark -->
+<-- bookmark -->
+
+* Vessel update code always moves ship based on current values
+* User input changes heading and speed values
 * Weapons class ( zero or more instances for each Vessel )
 
 * Enemy Vessel instances added
