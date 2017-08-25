@@ -49,12 +49,14 @@ var P = (function () {
 
         BA.call(this, o);
 
-        this.lf = new Date();
-        this.fr = 100;
         this.H = 1; // max HP
         this.i = this.H; // HP
 
+
         // the current weapon
+        this.lf = new Date(); // last fire
+        this.fr = 100; // fireRate
+
         this.we = new WE();
         this.ls = new Date(0);
 
@@ -163,8 +165,8 @@ var P = (function () {
                     h : 32
 
                 });
-				
-			this.pShip.b=1;
+
+            this.pShip.b = 1;
 
         },
 
@@ -454,6 +456,7 @@ var P = (function () {
             if (keys[87]) {
 
                 //vp.y -= 1;
+                map.pShip.b++;
 
             }
 
@@ -461,6 +464,7 @@ var P = (function () {
             if (keys[83]) {
 
                 //vp.y += 1;
+                map.pShip.b--;
 
             }
 

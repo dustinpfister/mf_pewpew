@@ -139,12 +139,12 @@
     drawShip = function () {
 
         var sx = P.vp.sx / P.map.sw * 800,
-        sy = P.vp.sy / P.map.sh * 600;
+        sy = P.vp.sy / P.map.sh * 600,
 
         // player ship
-        var ps = P.map.pShip;
+        ps = P.map.pShip,
 
-        var box = P.ajust(ps, 800, 600);
+        box = P.ajust(ps, 800, 600);
 
         ctx.strokeStyle = '#00ff00';
 
@@ -154,6 +154,30 @@
             box.y,
             box.w,
             box.h);
+
+        ctx.strokeStyle = '#ffff00';
+
+        ctx.save();
+
+        ctx.translate(box.x + box.w / 2, box.y + box.h / 2);
+		ctx.rotate(ps.a);
+		
+		ctx.beginPath();
+		ctx.moveTo(-box.w/2,-box.h/2);
+		ctx.lineTo(box.w/2,0);
+		ctx.lineTo(-box.w/2,box.h/2)
+		ctx.stroke();
+		/*
+        ctx.strokeRect(
+
+            -box.w / 2,
+            -box.h / 2,
+            box.w,
+            box.h);
+			
+		*/
+
+        ctx.restore();
     },
 
     drawShots = function () {
@@ -173,8 +197,8 @@
                 box.y,
                 box.w,
                 box.h);
-				
-			ctx.fillText(sh.l, box.x,box.y);
+
+            ctx.fillText(sh.l, box.x, box.y);
 
         });
     },
@@ -203,7 +227,7 @@
 
         drawScreen();
         drawShip();
-		drawShots();
+        drawShots();
         drawInfo();
     },
 
@@ -269,7 +293,7 @@
         //mw = P.map.sw / P.vp.w;
         //mh = P.map.sh / P.vp.h;
 
-		P.map.update();
+        P.map.update();
         P.vp.update();
         P.vp.ls();
 
