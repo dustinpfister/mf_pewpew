@@ -152,20 +152,20 @@
 
             box.x,
             box.y,
-            box.w,
-            box.h);
+            ps.s,
+            ps.s);
 
         ctx.strokeStyle = '#00ff00';
 
         ctx.save();
 
-        ctx.translate(box.x + box.w / 2, box.y + box.h / 2);
+        ctx.translate(box.x + ps.s / 2, box.y + ps.s / 2);
         ctx.rotate(ps.a);
 
         ctx.beginPath();
-        ctx.moveTo(-box.w / 2, -box.h / 2);
-        ctx.lineTo(box.w / 2, 0);
-        ctx.lineTo(-box.w / 2, box.h / 2)
+        ctx.moveTo(-ps.s / 2, -ps.s / 2);
+        ctx.lineTo(ps.s / 2, 0);
+        ctx.lineTo(-ps.s / 2, ps.s / 2)
         ctx.stroke();
         /*
         ctx.strokeRect(
@@ -195,8 +195,8 @@
 
                 box.x,
                 box.y,
-                box.w,
-                box.h);
+                sh.s,
+                sh.s);
 
             ctx.fillText(sh.l, box.x, box.y);
 

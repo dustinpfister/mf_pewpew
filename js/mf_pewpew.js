@@ -159,10 +159,7 @@ var P = (function () {
 
             this.pShip = new VE({
 
-                    x : -16,
-                    y : -16,
-                    w : 32,
-                    h : 32
+                    s : 64
 
                 });
 
@@ -255,8 +252,10 @@ var P = (function () {
             }
 
             // update ship pos based on vp
-            map.pShip.x = this.x + map.sw / 2 - 16;
-            map.pShip.y = this.y + map.sh / 2 - 16;
+            //+ map.sw / 2 - map.pShip.s / 2;
+            //+ map.sh / 2 - map.pShip.s / 2;
+            map.pShip.x = s.x + map.sw / 2 - map.pShip.s / 5;
+            map.pShip.y = s.y + map.sh / 2 - map.pShip.s / 5;
 
         },
 
@@ -357,8 +356,8 @@ var P = (function () {
 
             var s = new SH({
 
-                    x : this.x,
-                    y : this.y,
+                    x : vp.x + map.sw / 2,
+                    y : vp.y + map.sh / 2,
                     a : this.a,
                     s : 3,
                     b : 3
