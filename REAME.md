@@ -1,0 +1,3 @@
+## mf_pewpew.js
+
+I have made mf_pewpew.js to be single one stop micro framework solution for throwing together a simple space shooter game. The framework makes use of hacked over source code from [mf_shots.js](https://github.com/dustinpfister/mf_shots), and [mf_sections.js](https://github.com/dustinpfister/mf_sections) frameworks to produce a single cohesive framework. As such pewpew handles camera, section, and display object values.
