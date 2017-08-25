@@ -14,6 +14,7 @@ var P = (function () {
         this.lf = new Date(); // last fire
         this.fr = 1000; // fireRate
         this.ls = new Date(0);
+
     },
 
     // BA is for Base Unit Class
@@ -364,11 +365,15 @@ var P = (function () {
 
         var s = this.we.shoot();
 
-        if (s.l) {
+        if (s.length > 0) {
 
             console.log(s);
-			
-			map.shots.push(s);
+
+            s.forEach(function (s) {
+
+                map.shots.push(s);
+
+            });
 
         }
 
@@ -425,11 +430,11 @@ var P = (function () {
     WE.prototype.shoot = function () {
 
         var now = new Date(),
-        s = {};
+        s = [];
 
         if (now - this.lf >= this.fr) {
 
-            s = new SH({
+            s.push(new SH({
 
                     x : vp.x + map.sw / 2,
                     y : vp.y + map.sh / 2,
@@ -438,7 +443,7 @@ var P = (function () {
                     b : 3,
                     l : 50
 
-                });
+                }));
 
             // push to maps shot array
             //map.shots.push(s);
