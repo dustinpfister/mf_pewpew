@@ -73,9 +73,9 @@ var P = (function () {
         sh : 16,
         W : 23, // the section matrix width and height
         H : 17,
-		
-		// player ship
-		plShip : new VE(),
+
+        // player ship
+        pShip : new VE(),
 
         secs : [], // the sections array
         load : [], // currently loaded sections
@@ -103,7 +103,7 @@ var P = (function () {
 
         },
 
-        // setup sections
+        // setup map
         set : function () {
 
             var X,
@@ -112,6 +112,7 @@ var P = (function () {
             x,
             y;
 
+            // setup sections
             s.secs = [];
             while (Y < s.H / 2) {
 
@@ -138,6 +139,17 @@ var P = (function () {
 
                 Y += 1;
             }
+
+            // player ship
+
+            this.pShip = new VE({
+
+                    x : -16,
+                    y : -16,
+                    w : 32,
+                    h : 32
+
+                });
 
         }
 
@@ -171,8 +183,10 @@ var P = (function () {
             s.Y = Math.floor(s.y / map.sh);
 
             // stretch view port to section size
-            s.mw = s.w / map.sw;
-            s.mh = s.h / map.sh;
+            //s.mw = s.w / map.sw;
+            //s.mh = s.h / map.sh;
+			s.mw = 1;
+			s.mh = 1;
 
             s.secIndex = Math.floor((s.Y + map.H / 2) * map.W + s.X + map.W / 2);
 

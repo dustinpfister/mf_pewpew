@@ -86,7 +86,7 @@
 
     },
 
-    drawSceen = function () {
+    drawScreen = function () {
 
         ctx.lineWidth = 3;
 
@@ -136,6 +136,26 @@
 
     },
 
+    drawShip = function () {
+
+        var sx = P.vp.sx / P.map.sw * 800,
+        sy = P.vp.sy / P.map.sh * 600;
+
+        // player ship
+        var ps = P.map.pShip;
+
+        var box = P.ajust(ps, 800, 600);
+
+        ctx.strokeStyle = '#00ff00';
+
+        ctx.strokeRect(
+
+            box.x,
+            box.y,
+            box.w,
+            box.h);
+    },
+
     drawInfo = function () {
 
         var x = 400,
@@ -158,8 +178,8 @@
     // the single draw function
     draw = function () {
 
-        drawSceen();
-
+        drawScreen();
+drawShip();
         drawInfo();
     },
 
