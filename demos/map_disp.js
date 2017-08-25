@@ -156,6 +156,27 @@
             box.h);
     },
 
+    drawShots = function () {
+
+        var sx = P.vp.sx / P.map.sw * 800,
+        sy = P.vp.sy / P.map.sh * 600;
+
+        ctx.strokeStyle = '#ffffff';
+
+        P.map.shots.forEach(function (sh) {
+
+            var box = P.ajust(sh, 800, 600);
+
+            ctx.strokeRect(
+
+                box.x,
+                box.y,
+                box.w,
+                box.h);
+
+        });
+    },
+
     drawInfo = function () {
 
         var x = 400,
@@ -179,7 +200,8 @@
     draw = function () {
 
         drawScreen();
-drawShip();
+        drawShip();
+		drawShots();
         drawInfo();
     },
 
@@ -199,27 +221,27 @@ drawShip();
 
         P.keyState(keys);
 
-		/*
+        /*
         if (keys[68]) {
 
-            P.vp.x += 1;
+        P.vp.x += 1;
 
         }
 
         if (keys[49]) {
 
-            //if (P.vp.w < 1280) {
+        //if (P.vp.w < 1280) {
 
-            P.vp.w += 2;
-            P.vp.x -= 1;
+        P.vp.w += 2;
+        P.vp.x -= 1;
 
-            P.vp.h += 2;
-            P.vp.y -= 1;
+        P.vp.h += 2;
+        P.vp.y -= 1;
 
-            //}
+        //}
 
         }
-		*/
+         */
 
         if (keys[50]) {
 

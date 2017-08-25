@@ -87,6 +87,9 @@ var P = (function () {
         // player ship
         pShip : new VE(),
 
+        // current active shots
+        shots : [],
+
         secs : [], // the sections array
         load : [], // currently loaded sections
 
@@ -320,6 +323,9 @@ var P = (function () {
 
             //a.s.u.push(s);
 
+            // push to maps shot array
+            map.shots.push(s);
+
             this.lf = new Date();
 
         }
@@ -429,8 +435,8 @@ var P = (function () {
                 vp.x += 1;
 
             }
-			
-			// ;
+
+            // ;
             if (keys[186]) {
 
                 map.pShip.shoot();
