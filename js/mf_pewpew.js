@@ -31,7 +31,7 @@ var P = (function () {
     // SH is for Shot Class
     SH = function (o) {
 
-        B.call(this, o);
+        BA.call(this, o);
 
         this.l = o.l || 100; // life span
         this.dam = 1; // damage
@@ -41,7 +41,7 @@ var P = (function () {
     // VE is for vessel
     VE = function (o) {
 
-        B.call(this, o);
+        BA.call(this, o);
 
         this.lf = new Date();
         this.fr = 100;
@@ -53,7 +53,7 @@ var P = (function () {
     // PL is for Planet
     PL = function (o) {
 
-        B.call(this, o);
+        BA.call(this, o);
 
         this.sp = false;
 
@@ -369,7 +369,7 @@ var P = (function () {
         },
 
         // make a planet ring
-        PLRing : function (points,d) {
+        PLRing : function (points, d) {
 
             var p = points;
             while (p--) {
@@ -395,13 +395,23 @@ var P = (function () {
                     }
 
                     // push new planet
+                    /*
                     sec.pl.push({
 
-                        x : a,
-                        y : b,
-                        s : 5
+                    x : a,
+                    y : b,
+                    s : 5
 
                     });
+                     */
+
+                    sec.pl.push(new PL({
+
+                            x : a,
+                            y : b,
+                            s : 5
+
+                        }))
 
                 }
 
