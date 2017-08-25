@@ -184,11 +184,30 @@ var P = (function () {
                 this.enemys.push(new VE({
 
                         owner : 'e',
-                        x : map.pShip.x + 32 / 5 + 100,
+                        x : map.pShip.x + 32 / 5 + 100 * Math.random() + 50,
                         y : map.pShip.y + 32 / 5,
                         s : 32
 
                     }));
+
+            }
+
+        },
+
+        // enemy purge method
+        e_purge : function () {
+
+            var i = this.enemys.length,
+            e;
+            while (i--) {
+
+                e = this.enemys[i];
+
+                if (e.i <= 0) {
+
+                    this.enemys.splice(i, 1);
+
+                }
 
             }
 
@@ -199,6 +218,8 @@ var P = (function () {
 
             // enemy spawn method
             this.e_spawn();
+
+            this.e_purge();
 
             // player ship
             if (this.pShip.b < 0) {
