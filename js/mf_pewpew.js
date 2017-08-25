@@ -73,6 +73,9 @@ var P = (function () {
         sh : 16,
         W : 23, // the section matrix width and height
         H : 17,
+		
+		// player ship
+		plShip : new VE(),
 
         secs : [], // the sections array
         load : [], // currently loaded sections

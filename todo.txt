@@ -2,10 +2,14 @@
 
 0.0.x
 
-<!-- bookmark -->
 
 * Put together a Single file based off the source code from mf_shots, and mf_sections
+
+
+<!-- bookmark -->
+* Player Vessel instance for the player ship fixed at the center of the view port
+* Player Vessel instance controlled by user input
 * Weapons class ( zero or more instances for each Vessel )
-* Player Vessel instance controlled by uner input
+
 * Enemy Vessel instances added
 * AI Script controlled Enemy Vessels

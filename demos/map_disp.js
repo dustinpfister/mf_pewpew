@@ -30,53 +30,7 @@
         });
 
     },
-    /*
-    ring = function (points, d) {
 
-    var p = points;
-    while (p--) {
-
-    var r = Math.PI * 2 / points * p;
-    var a = Math.floor(Math.cos(r) * d);
-    var b = Math.floor(Math.sin(r) * d);
-
-    //console.log(x + ',' + y)
-
-    //console.log();
-    var sec = P.map.getPos(a, b);
-
-    //console.log(sec);
-
-    if (sec === undefined) {
-
-    console.log('undefined sec');
-    console.log(a);
-    console.log(b);
-
-    } else {
-
-    // no planet array? make one
-    if (sec.pl === undefined) {
-
-    sec.pl = [];
-
-    }
-
-    // push new planet
-    sec.pl.push({
-
-    x : a,
-    y : b,
-    s : 5
-
-    });
-
-    }
-
-    }
-
-    },
-     */
     setup = function () {
 
         // append to body
@@ -129,90 +83,6 @@
         draw();
 
         loop();
-
-    },
-
-    // draw all sections
-    drawSections = function () {
-
-        var s = P.map.secs;
-
-        ctx.strokeStyle = '#ffffff';
-        ctx.fillStyle = '#ffffff';
-
-        ctx.textBaseline = 'top';
-        s.forEach(function (sec, index) {
-
-            ctx.strokeRect(
-
-                sec.x + offX,
-
-                sec.y + offY,
-
-                P.map.sw, P.map.sh);
-
-        });
-
-    },
-
-    drawLoaded = function () {
-
-        ctx.strokeStyle = '#00ffff';
-        ctx.fillStyle = '#00ffff';
-
-        ctx.textBaseline = 'top';
-        P.map.load.forEach(function (sec, index) {
-
-            ctx.strokeRect(
-
-                sec.x + offX,
-
-                sec.y + offY,
-
-                P.map.sw, P.map.sh);
-
-            ctx.fillText(sec.x - P.vp.x, sec.x + 5 + offX, sec.y + 5 + offY);
-
-        });
-    },
-
-    //draw planets
-    drawPlanets = function () {
-
-        P.map.load.forEach(function (sec, index) {
-
-            if (sec.pl) {
-
-                sec.pl.forEach(function (pl) {
-
-                    ctx.fillStyle = '#ff0000';
-                    ctx.beginPath();
-                    ctx.arc(pl.x + offX, pl.y + offY, pl.s, 0, Math.PI * 2);
-                    ctx.closePath();
-                    ctx.stroke();
-                    //ctx.fillRect(pl.x + offX, pl.y + offY, pl.s, pl.s);
-
-                });
-
-            }
-
-        });
-
-    },
-
-    //
-    drawViewport = function () {
-
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = '#00ff00';
-
-        // draw viewport marker
-        ctx.strokeRect(P.vp.x + offX, P.vp.y + offY, P.vp.w, P.vp.h);
-
-        // draw scaled view
-
-        ctx.strokeStyle = '#ffffff';
-        //var sx = S.map.load[0].X * S.map.sw;
 
     },
 
@@ -289,11 +159,6 @@
     draw = function () {
 
         drawSceen();
-
-        //drawSections();
-        //drawLoaded();
-        //drawPlanets();
-        //drawViewport();
 
         drawInfo();
     },
