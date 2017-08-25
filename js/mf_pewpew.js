@@ -367,6 +367,8 @@ var P = (function () {
         if (s.l) {
 
             console.log(s);
+			
+			map.shots.push(s);
 
         }
 
@@ -431,10 +433,10 @@ var P = (function () {
 
                     x : vp.x + map.sw / 2,
                     y : vp.y + map.sh / 2,
-                    a : this.a,
+                    a : map.pShip.a,
                     s : 3,
                     b : 3,
-                    l : 10
+                    l : 50
 
                 });
 
