@@ -184,8 +184,8 @@ var P = (function () {
                 this.enemys.push(new VE({
 
                         owner : 'e',
-                        x : vp.x + 32 / 5,
-                        y : vp.y + 32 / 5,
+                        x : map.pShip.x + 32 / 5+100,
+                        y : map.pShip.y + 32 / 5,
                         s : 32
 
                     }));
