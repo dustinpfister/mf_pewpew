@@ -8,6 +8,12 @@ var P = (function () {
 
     },
 
+    // WE is for Weapon Class
+    WE = function (o) {
+
+        this.sps = 3; // shots per second
+    },
+
     // BA is for Base Unit Class
     BA = function (o) {
 
@@ -47,6 +53,10 @@ var P = (function () {
         this.fr = 100;
         this.H = 1; // max HP
         this.i = this.H; // HP
+
+        // the current weapon
+        this.we = new WE();
+        this.ls = new Date(0);
 
     };
 
@@ -298,7 +308,7 @@ var P = (function () {
 
         if (now - this.lf >= this.fr) {
 
-            var s = new S({
+            var s = new SH({
 
                     x : this.x,
                     y : this.y,
@@ -308,7 +318,7 @@ var P = (function () {
 
                 });
 
-            a.s.u.push(s);
+            //a.s.u.push(s);
 
             this.lf = new Date();
 
@@ -395,28 +405,35 @@ var P = (function () {
             // w
             if (keys[87]) {
 
-                P.vp.y -= 1;
+                vp.y -= 1;
 
             }
 
             // s
             if (keys[83]) {
 
-                P.vp.y += 1;
+                vp.y += 1;
 
             }
 
             // a
             if (keys[65]) {
 
-                P.vp.x -= 1;
+                vp.x -= 1;
 
             }
 
             // d
             if (keys[68]) {
 
-                P.vp.x += 1;
+                vp.x += 1;
+
+            }
+			
+			// ;
+            if (keys[186]) {
+
+                map.pShip.shoot();
 
             }
 
