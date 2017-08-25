@@ -177,9 +177,9 @@ var P = (function () {
 
             }
 
-            if (this.pShip.b > 5) {
+            if (this.pShip.b > 2) {
 
-                this.pShip.b = 5;
+                this.pShip.b = 2;
 
             }
 
@@ -436,12 +436,12 @@ var P = (function () {
 
             s.push(new SH({
 
-                    x : vp.x + map.sw / 2,
-                    y : vp.y + map.sh / 2,
+                    x : vp.x + map.sw / 2-10/5,
+                    y : vp.y + map.sh / 2-10/5,
                     a : map.pShip.a,
-                    s : 3,
-                    b : 3,
-                    l : 50
+                    s : 10,
+                    b : 4,
+                    l : 70
 
                 }));
 
@@ -501,7 +501,7 @@ var P = (function () {
                     if (keys[87]) {
 
                         //vp.y -= 1;
-                        map.pShip.b++;
+                        map.pShip.b+=.1;
 
                     }
 
@@ -509,7 +509,7 @@ var P = (function () {
                     if (keys[83]) {
 
                         //vp.y += 1;
-                        map.pShip.b--;
+                        map.pShip.b-=.1;
 
                     }
 
