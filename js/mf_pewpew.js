@@ -185,8 +185,8 @@ var P = (function () {
             // stretch view port to section size
             //s.mw = s.w / map.sw;
             //s.mh = s.h / map.sh;
-			s.mw = 1;
-			s.mh = 1;
+            s.mw = 1;
+            s.mh = 1;
 
             s.secIndex = Math.floor((s.Y + map.H / 2) * map.W + s.X + map.W / 2);
 
@@ -206,6 +206,10 @@ var P = (function () {
                 s.ajustY = l.Y * map.sh * s.mh;
 
             }
+
+            // update ship pos based on vp
+            map.pShip.x = this.x + map.sw / 2 - 16;
+            map.pShip.y = this.y + map.sh / 2 - 16;
 
         },
 
@@ -412,23 +416,13 @@ var P = (function () {
                     }
 
                     // push new planet
-                    /*
-                    sec.pl.push({
-
-                    x : a,
-                    y : b,
-                    s : 5
-
-                    });
-                     */
-
                     sec.pl.push(new PL({
 
                             x : a,
                             y : b,
                             s : 5
 
-                        }))
+                        }));
 
                 }
 
