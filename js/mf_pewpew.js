@@ -193,7 +193,23 @@ var P = (function () {
             vp.w = opt.vp.w || 320;
             vp.h = opt.vp.h || 240;
             vp.set();
-			vp.ls();
+            vp.ls();
+
+        },
+
+        ajust : function (obj, width, height) {
+
+            width = width || 640;
+            height = height || 480;
+
+            return {
+
+                x : (obj.x - vp.x) / map.sw * width / vp.mw,
+                y : (obj.y - vp.y) / map.sh * height / vp.mh,
+                w : obj.s === undefined ? width / vp.mw : obj.s * (11 - vp.mh),
+                h : obj.s === undefined ? height / vp.mh : obj.s * (11 - vp.mh)
+
+            };
 
         }
     }
