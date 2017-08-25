@@ -176,8 +176,28 @@ var P = (function () {
 
         },
 
+        // enemy spawn method
+        e_spawn : function () {
+
+            if (this.enemys.length < 1) {
+
+                this.enemys.push(new VE({
+
+                        owner : 'e',
+                        x : vp.x - 32,
+                        y : vp.y - 32
+
+                    }));
+
+            }
+
+        },
+
         // what to update for map on each frame tick for map
         update : function () {
+
+            // enemy spawn method
+            this.e_spawn();
 
             // player ship
             if (this.pShip.b < 0) {
