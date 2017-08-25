@@ -9,8 +9,8 @@
     mapW,
     offX,
     offY,
-    mw,
-    mh,
+    //mw,
+    //mh,
     keys = [],
 
     rnd = function () {
@@ -85,6 +85,7 @@
         canvas.height = 600;
 
         // setup map
+        /*
         P.map.sw = 32;
         P.map.sh = 32;
         P.map.W = 20;
@@ -96,8 +97,32 @@
         P.vp.set();
         P.map.set();
 
+         */
+        P.set({
+
+            // setup the section map
+            map : {
+
+                sw : 320, // the size of a section
+                sh : 240,
+                W : 4,
+                H : 4
+
+            },
+
+            // set up the view port (or camera)
+            vp : {
+
+                w : 640, // set width and height of the view port
+                h : 480
+
+            }
+
+        });
+
         mapW = P.map.sw * P.map.W;
         mapH = P.map.sh * P.map.H;
+
         offX = mapW / 2 + 10; //mapW / 2 + (canvas.width / 2 - mapW / 2);
         offY = mapH / 2 + 10; //mapH / 2 + (canvas.height / 2 - mapH / 2);
 
@@ -108,11 +133,17 @@
 
         // rings
 
+
+        ring(10, 200);
+
+        /*
         ring(10000, 190);
         ring(5000, 150);
         ring(100, 100);
         ring(20, 50);
         ring(10, 20);
+
+         */
 
         // load sections for first time
         P.vp.ls();
@@ -236,7 +267,6 @@
 
             }
 
-
         });
 
         ctx.fillStyle = '#ffff00';
@@ -268,10 +298,10 @@
 
         drawSceen();
 
-        drawSections();
-        drawLoaded();
-        drawPlanets();
-        drawViewport();
+        //drawSections();
+        //drawLoaded();
+        //drawPlanets();
+        //drawViewport();
 
         drawInfo();
     },
@@ -349,8 +379,8 @@
         }
 
         // multi
-        mw = P.map.sw / P.vp.w;
-        mh = P.map.sh / P.vp.h;
+        //mw = P.map.sw / P.vp.w;
+        //mh = P.map.sh / P.vp.h;
 
         P.vp.update();
         P.vp.ls();
