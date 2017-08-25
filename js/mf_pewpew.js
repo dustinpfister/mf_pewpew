@@ -170,6 +170,19 @@ var P = (function () {
         // what to update for map on each frame tick for map
         update : function () {
 
+            // player ship
+            if (this.pShip.b < 0) {
+
+                this.pShip.b = 0;
+
+            }
+
+            if (this.pShip.b > 5) {
+
+                this.pShip.b = 5;
+
+            }
+
             // update view port based on player ship values
             vp.x += Math.cos(this.pShip.a) * this.pShip.b;
             vp.y += Math.sin(this.pShip.a) * this.pShip.b;
@@ -449,51 +462,67 @@ var P = (function () {
         },
 
         // update based on given keys state array
-        keyState : function (keys) {
+        keyState : (function () {
 
-            // w
-            if (keys[87]) {
+            var lockTime = 60,
+            lastKey = new Date();
 
-                //vp.y -= 1;
-                map.pShip.b++;
+            return function (keys) {
 
-            }
+                var now = new Date();
 
-            // s
-            if (keys[83]) {
+                if (now - lastKey >= lockTime) {
 
-                //vp.y += 1;
-                map.pShip.b--;
+                    lastKey = new Date();
 
-            }
+                    // w
+                    if (keys[87]) {
 
-            // a
-            if (keys[65]) {
+                        //vp.y -= 1;
+                        map.pShip.b++;
 
-                //vp.x -= 1;
+                    }
 
-                map.pShip.a += Math.PI / 50;
+                    // s
+                    if (keys[83]) {
 
-            }
+                        //vp.y += 1;
+                        map.pShip.b--;
 
-            // d
-            if (keys[68]) {
+                    }
 
-                //vp.x += 1;
+                    // a
+                    if (keys[65]) {
+
+                        //vp.x -= 1;
+
+                        map.pShip.a += Math.PI / 50;
+
+                    }
+
+                    // d
+                    if (keys[68]) {
+
+                        //vp.x += 1;
 
 
-                map.pShip.a -= Math.PI / 50;
+                        map.pShip.a -= Math.PI / 50;
 
-            }
+                    }
 
-            // ;
-            if (keys[186]) {
+                    // ;
+                    if (keys[186]) {
 
-                map.pShip.shoot();
+                        map.pShip.shoot();
 
-            }
+                    }
 
-        },
+                }
+
+            };
+
+        }
+            ()),
 
         // make a planet ring
         PLRing : function (points, d) {
