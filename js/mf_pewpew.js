@@ -189,6 +189,12 @@ var P = (function () {
 
             map.set();
 
+            // vp
+            vp.w = opt.vp.w || 320;
+            vp.h = opt.vp.h || 240;
+            vp.set();
+			vp.ls();
+
         }
     }
 }
