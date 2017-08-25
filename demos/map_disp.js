@@ -114,7 +114,7 @@
 
                     ctx.strokeStyle = '#ffffff';
                     ctx.lineWidth = 3;
-                    ctx.fillStyle = '#ff0000';
+                    ctx.fillStyle = '#007a7a';
 
                     ctx.beginPath();
                     ctx.arc(box.x, box.y, box.w, 0, Math.PI * 2);
@@ -162,17 +162,8 @@
         ctx.lineTo(ps.s / 2, 0);
         ctx.lineTo(-ps.s / 2, ps.s / 2)
         ctx.stroke();
-        /*
-        ctx.strokeRect(
-
-        -box.w / 2,
-        -box.h / 2,
-        box.w,
-        box.h);
-
-         */
-
         ctx.restore();
+
     },
 
     drawShots = function () {
@@ -204,6 +195,27 @@
         });
     },
 
+    drawEnemeys = function () {
+
+        var sx = P.vp.sx / P.map.sw * 800,
+        sy = P.vp.sy / P.map.sh * 600;
+
+        P.map.enemys.forEach(function (e) {
+
+            var box = P.ajust(e, 800, 600);
+
+			ctx.strokeStyle = '#ff0000';
+            ctx.strokeRect(
+
+                box.x,
+                box.y,
+                e.s,
+                e.s);
+
+        });
+
+    },
+
     drawInfo = function () {
 
         var x = 10,
@@ -215,7 +227,8 @@
         var infos = [
 
             'vp pos (px) (' + P.vp.x + ',' + P.vp.y + ')',
-            'player speed: ' + P.map.pShip.b
+            'player speed: ' + P.map.pShip.b,
+            'e count: ' + P.map.enemys.length
 
         ];
 
@@ -252,6 +265,8 @@
     draw = function () {
 
         drawScreen();
+
+        drawEnemeys();
         drawShip();
         drawShots();
         drawInfo();

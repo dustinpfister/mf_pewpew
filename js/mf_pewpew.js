@@ -172,7 +172,7 @@ var P = (function () {
 
                 });
 
-            this.pShip.b = 1;
+            this.pShip.b = 0;
 
         },
 
@@ -184,8 +184,9 @@ var P = (function () {
                 this.enemys.push(new VE({
 
                         owner : 'e',
-                        x : vp.x - 32,
-                        y : vp.y - 32
+                        x : vp.x + 32 / 5,
+                        y : vp.y + 32 / 5,
+                        s : 32
 
                     }));
 
